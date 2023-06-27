@@ -10,7 +10,7 @@
 
             <form action="index.php?c=login&a=login" method="post"> action
                 <div class="input-group mb-3">
-                    <input type="email" class="form-control" placeholder="Email" name="utilizador">
+                    <input type="text" class="form-control" placeholder="Email" name="utilizador">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>

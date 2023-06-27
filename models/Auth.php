@@ -1,4 +1,5 @@
 <?php
+require_once 'models/User.php';
 class Auth
 {
     function __construct(){
@@ -6,12 +7,18 @@ class Auth
     }
 
     function CheckAuth($username, $password) {
-        if ($username == "max@max" and $password == "123"){
-            $_SESSION[$username] = $username;
-            return true;
-        }
-        else{
-            return false;
+        $user = User::all();
+        foreach ($user as $u) {
+            if ($u->username == $username and $u->password == $password){
+                $_SESSION[$username] = $username;
+                if ($u->role == 'admin'){
+                    return 1;
+                } else{
+                    return 2;
+                }
+            }else{
+                return 0;
+            }
         }
     }
 
